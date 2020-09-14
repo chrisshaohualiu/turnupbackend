@@ -21,4 +21,10 @@ routes.post("/recent", (req, res)=>{
     })
 })
 
+routes.get("/favorite-artists", (req, res)=>{
+    pool.query(`SELECT * FROM favorite_artists`).then(response=>{
+        res.json(response.rows);
+    })
+})
+
 module.exports = routes;
